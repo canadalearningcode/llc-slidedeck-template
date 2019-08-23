@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Ladies Learning Code</title>
-  <link rel="stylesheet" href="framework/css/slideshow.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/inspire.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
@@ -17,8 +17,7 @@
   <base target="_blank">
 </head>
 
-<!-- Timer/progress bar: Define the presentation duration using "data-duration" in minutes. -->
-<body class="en" data-duration="360">
+<body class="en">
   
   <section class="slide" data-markdown>
     <script type="text/template">
@@ -27,13 +26,25 @@
       Created by [Christina Truong](http://christinatruong.com) for Ladies Learning Code.
       
       View the slide presentation for instructions regarding content, customization options and style guides.
+
+      <h2>Keyboard Navigation</h2>
+      <ul>
+        <li><kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>↑</kbd> to navigate slides or display items</li>
+        <li><kbd>Ctrl</kbd><kbd>G</kbd> to jump to the specified slide number</li>
+        <li><kbd>Home</kbd> to go to the first slide, <kbd>End</kbd> to go to the last; <br/>Mac keyboard, <kbd>fn</kbd><kbd>→</kbd> and <kbd>fn</kbd><kbd>←</kbd></li>
+        <li><kbd>Ctrl</kbd><kbd>H</kbd> to activate Overview</li>
+      </ul>
       
       Email questions & comments to <content@ladieslearningcode.com>.
     </script>
   </section>
   
-  <main>
-    <section class="slide welcome highlight">
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Default Opening Slides</h1>
+    </header>
+
+    <article class="slide welcome highlight">
       <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
       
       <div class="instructions">
@@ -61,9 +72,9 @@
         <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
         <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
       </footer>
-    </section> 
+    </article>
     
-    <section class="slide intro">
+    <article class="slide intro">
       <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
       <h1 class="heading-bg">
         <span>Workshop Title:<br>
@@ -87,9 +98,15 @@
         <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
         <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
       </footer>
-    </section> 
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Template Customizations</h1>
+    </header>
     
-    <section class="slide" data-markdown data-toc>
+    <article class="slide" data-markdown>
       <script type="text/template">
       #Instructions
 
@@ -105,9 +122,9 @@
 
       View the rest of the presentation for theme examples and more information about Markdown support and editable in-slide CSS examples.
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Markdown support
 
@@ -115,24 +132,24 @@
         
         Because the workshop content is written primarily in Markdown, white space should be preserved. View the readme file for instructions.
 
-        To use Markdown, include the `data-markdown` attribute in the section tag and add the content in `script` tags.
+        To use Markdown, include the `data-markdown` attribute in the `article` tag and add the content in `script` tags.
 
-<pre><code>&lt;section class=&quot;slide&quot; data-markdown&gt;
-  &lt;script type=&quot;text/template&quot;&gt;
-    #This is an h1!
-    
-    This is a paragraph.
-  &lt;/script&gt;
-&lt;/section&gt;
-</code></pre>
+        <pre><code>&lt;article class=&quot;slide&quot; data-markdown&gt;
+          &lt;script type=&quot;text/template&quot;&gt;
+            #This is an h1!
+            
+            This is a paragraph.
+          &lt;/script&gt;
+        &lt;/article&gt;
+        </code></pre>
         
         Markdown supports content in HTML as well, so you can switch between using Markdown & HTML in the same slide, with the exception of `script` tags.  
         
         For `script` tags, you will need to escape the brackets.
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Markdown Support
         
@@ -157,15 +174,15 @@
         For HTML, you can set the language to `html` or `xml`.
 
         ```html
-        <header>
+        <article>
           <h1>I'm an H1!</h1>
           <p>This is a paragraph</p>
-        </header>
+        </article>
         ```
       </script>
-    </section>
+    </article>
 
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Markdown Support
         
@@ -190,9 +207,9 @@
         <p class="some-style">Text and a <a href="http://hakim.se">link</a>.</p>
         ```
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Syntax Highlighting
 
@@ -202,9 +219,9 @@
 
         Using a light theme for slide presentations works better for classroom settings that don't allow for the dimming of lights. Some projectors don't show syntax highlighting on dark backgrounds very well.
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown data-toc>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Tools
         
@@ -222,46 +239,58 @@
         LICEcap - simple animated screen captures  
         http://www.cockos.com/licecap/
       </script>
-    </section>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Title Slides</h1>
+    </header>
     
-    <section class="slide title" data-markdown data-toc>
+    <article class="slide title" data-markdown>
       <script type="text/template">
-        # Title Slide Only
+        # Title Only
       </script>
-    </section>
+    </article>
 
-    <section class="slide title" data-markdown>
+    <article class="slide title" data-markdown>
       <script type="text/template">
-        # Title Slide
-        ##W ith a Sub-heading
+        # Title
+        ## With a Sub-heading
       </script>
-    </section>
+    </article>
 
-    <section class="slide" data-markdown data-toc>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Title slides
 
-        For the previous two examples of Title slides, add a `title` class to `<section>` and use an `h1` tag for the main heading and `h2` for a subheading.
+        For the previous two examples of Title slides, add a `title` class to `<header>` and use an `h1` tag for the main heading and `h2` for a subheading.
         
         ```xml
-        <section class="slide title">
+        <header class="slide title">
           <h1>Title Slide Example</h1>
           <h2>Sub-heading example</h2>
-        </section>
+        </header>
         ```
-<pre><code>&lt;section class=&quot;slide title&quot; data-markdown&gt;
-  &lt;script type=&quot;text/template&quot;&gt;
-    # Title Slide
-    ## With a Sub-heading
-  &lt;/script&gt;
-&lt;/section&gt;
-</code></pre>
+        <pre><code>&lt;header class=&quot;slide title&quot; data-markdown&gt;
+          &lt;script type=&quot;text/template&quot;&gt;
+            # Title Slide
+            ## With a Sub-heading
+          &lt;/script&gt;
+        &lt;/header&gt;
+        </code></pre>
         
         Also, each slide heading should be an `h1`.
       </script>
-    </section>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Content Styling</h1>
+    </header>
     
-    <section class="slide" data-toc data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         # Incremental display of content
         
@@ -279,19 +308,21 @@
         * Line 1<!-- .element: class="delayed" -->
         * Line 2<!-- .element: class="delayed" -->
         * Line 3<!-- .element: class="delayed" -->
+
+        <p class="delayed note">Note! You could delay the entire list with `class="delayed-children"`, but it only works with HTML not Markdown.</p>
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #Course Outline
         
-        To create a table of contents using slide titles, add `data-toc` to the `<section>` tag of the slide that contains the heading to be included.  Must be an `<h1>` heading. Only add the relevant headings/slides.
+        To create a table of contents using slide titles, add `data-toc` to the `<header>` tag of the slide that contains the heading to be included.  Must be an `<h1>` heading. Only add the relevant headings/slides.
         
         ```xml
-        <section class="slide" data-markdown data-toc>
+        <header class="slide" data-markdown data-toc>
           #Customizing slides
-        </section>
+        </header>
         ```
         
         Then in the slide, add this snippet to generate the list:
@@ -301,9 +332,9 @@
         ```
         See the next slide to see the sample Table of Contents.
       </script>
-    </section>
+    </article>
     
-    <section class="slide two-col-list" data-markdown>
+    <article class="slide two-col-list" data-markdown>
       <script type="text/template">
         #Course Outline
         
@@ -311,19 +342,19 @@
         
         <div class="table-of-contents"></div>  
       </script>
-    </section>
+    </article>
 
-    <section class="slide centered" data-markdown data-toc>
+    <article class="slide centered" data-markdown>
       <script type="text/template">
         #Centered content
 
-        Add a class of `centered` to `<section>`.
+        Add a class of `centered` to `<article>`.
 
         ![](http://cl.ly/image/14193Y1x1f2c/mic-drop.gif)
       </script>
-    </section>    
+    </article>
 
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #CSS demos
 
@@ -339,9 +370,9 @@
         color: rebeccapurple;</textarea>
         ```
       </script>
-    </section>
+    </article>
 
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         #CSS demos
 
@@ -356,9 +387,9 @@
 
         In the `<textarea>`, add a `data-subject` attribute with a value that matches the `id` of the element to be targeted.  Also, add `.example` to add the border style. See markup in the HTML source.
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown>
+    <article class="slide" data-markdown>
       <script type="text/template">
         # Footnotes & small text
         
@@ -366,7 +397,7 @@
         
         This is a note! Use this for "gotchas" and additional info.<!-- .element: class="note" -->
         
-        To add a Resources section at the end of bottom of the page, add a horizontal rule, an h3 heading called "Resources", "Resource" or "Pro tip!"  Use a list or paragraph to add resources.  See HTML source code for syntax.
+        To add a Resources section at the end of bottom of the page, add a horizontal rule, an `h3` heading called "Resources", "Resource" or "Pro tip!"  Use a list or paragraph to add resources.  See HTML source code for syntax.
         
         ---
         ###Resources
@@ -374,13 +405,13 @@
         * example 2
         * example 3
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown data-toc>
+    <article class="slide" data-markdown>
       <script type="text/template">
-        #Default list style
+        # Default list style
         
-        No additional markup or CSS required.
+        Unordered list is triggered by `*` in Markdown.
         
         * Cupcake ipsum dolor sit amet sweet roll.
         * Carrot cake powder pastry jelly beans fruitcake.
@@ -393,13 +424,13 @@
         * http://cupcakeipsum.com
         * http://ladieslearningcode.com
       </script>
-    </section>
+    </article>
     
-    <section class="slide" data-markdown data-toc>
+    <article class="slide" data-markdown>
       <script type="text/template">
-        #Default ordered list style
+        # Default ordered list style
         
-        No additional markup or CSS required.
+        Ordered list is triggered by `1.` in Markdown.
         
         1. Cupcake ipsum dolor sit amet sweet roll.
         1. Carrot cake powder pastry jelly beans fruitcake.
@@ -412,13 +443,13 @@
         1. http://cupcakeipsum.com
         1. http://ladieslearningcode.com
       </script>
-    </section>
+    </article>
 
-    <section class="slide nested-list" data-markdown>
+    <article class="slide nested-list" data-markdown>
       <script type="text/template">
         #nested-list
         
-        Add a class of `.nested-list` in the section tag.
+        Add a class of `.nested-list` in the `article` tag.
         
         * Cupcake ipsum dolor sit amet sweet roll.
           * Carrot cake powder pastry jelly beans fruitcake.
@@ -435,13 +466,13 @@
         * http://wordpress.com
         * http://wordpress.org
       </script>
-    </section>
+    </article>
     
-    <section class="slide two-col-list" data-markdown>
+    <article class="slide two-col-list" data-markdown>
       <script type="text/template">
         #two-col-list
         
-        Nested list displayed in two columns.  Add a class of `.two-col-list` in the section tag.
+        Nested list displayed in two columns.  Add a class of `.two-col-list` in the `article` tag.
         
         * Cupcake ipsum dolor
           * Carrot cake powder pastry
@@ -457,9 +488,15 @@
         * http://wordpress.com
         * http://wordpress.org
       </script>
-    </section>
+    </article>
+  </section>
 
-    <section class="slide small-type" data-markdown>
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Default Closing Slides</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
       <script type="text/template">
         #Next Steps
 
@@ -480,10 +517,10 @@
 
         Here's a tutorial getting your files online using FileZilla: [FileZilla Client Tutorial](https://wiki.filezilla-project.org/FileZilla_Client_Tutorial_%28en%29)
       </script>
-    </section>
+    </article>
     
     <!-- Last slide -->
-    <section class="slide last">
+    <article class="slide last">
       <h1>Thank you!</h1>
       <h2 class="heading-bg">
         <span>Title of Workshop<br>Second line</span>
@@ -498,12 +535,58 @@
       </ul>
 
       <p class="attribution">Slide presentation created by <a href="http://christinatruong.com">Christina Truong</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
-    </section>
+    </article>
+  </section>
 
-  </main><!-- cls main section -->
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Overall Layout</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Slide Template Skeleton
+
+        ```html
+        <section>
+          <header class="slide title" data-toc>
+            <h1>I am Title</h1>
+            <h2>And I am Subtitle</h2>
+          </header>
+
+          <article class="slide">
+            <h1>Slide Title</h1>
+
+            <p>Slide content here in HTML.</p>
+          </article>
+
+          <article class="slide" data-markdown>
+            <script type="text/template">
+              # Slide Title
+              
+              Slide content here in Markdown.
+            < /script><!-- intentional space for demo purposes -->
+          </article>
+        </section>
+        ```
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Types of Layout
+
+        * [Course Outline / Agenda](slides.html#slide18)
+        * [Title (with or without subtitle)](slides.html#slide15)
+        * [Centered content](slides.html#slide20)
+        * [Nested lists content](slides.html#slide26)
+        * [Two column content](slides.html#slide27)
+      </script>
+    </article>
+  </section>
   
-  <script src="framework/scripts/jquery-1.11.0.min.js"></script>
-  <script src="framework/scripts/slideshow.js"></script>
+  <script src="framework/scripts/jquery-3.4.1.slim.min.js"></script>
+  <script src="framework/scripts/inspire.js"></script>
 
   <!-- Uncomment the plugins you need -->
   <script src="framework/scripts/plugins/css-edit.js"></script>
@@ -516,14 +599,5 @@
   <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script src="framework/scripts/llc.js"></script>
-  <script>
-    var slideshow = new SlideShow();
-
-    // Grabs all the .snippet elements
-    var snippets = document.querySelectorAll('.snippet');
-    for(var i=0; i<snippets.length; i++) {
-      new CSSSnippet(snippets[i]);
-    }
-  </script>
 </body>
 </html>
