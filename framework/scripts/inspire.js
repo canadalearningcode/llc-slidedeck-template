@@ -43,7 +43,8 @@ var _ = self.Inspire = {
     "resolution": "[data-resolution]",
     "docs": "[data-mdn] code, code[data-mdn]",
     "mavo": "[mv-app]",
-    "visible-keys": "[data-visible-keys]"
+    "visible-keys": "[data-visible-keys]",
+    "a11y": "*"
   },
 
   // Plugins loaded
