@@ -189,22 +189,22 @@
 
         Add an attribute like this:
 
-        ```html
+        ```markdown
         Text with a class.<!-- .element: class="some-style" -->
         ```
         Will be converted to:
 
-        ```
+        ```html
         <p class="some-style">Text with a class.</p>
         ```
 
         Be sure to place the snippet before any nested elements.
-        ```
+        ```markdown
         Text and a <!-- .element: class="some-style" --> [link](http://website.com)
         ```
         Will be converted to:
 
-        ```
+        ```html
         <p class="some-style">Text and a <a href="http://hakim.se">link</a>.</p>
         ```
       </script>
@@ -267,7 +267,7 @@
 
         For the previous two examples of Title slides, add a `title` class to `<header>` and use an `h1` tag for the main heading and `h2` for a subheading.
 
-        ```xml
+        ```html
         <header class="slide title">
           <h1>Title Slide Example</h1>
           <h2>Sub-heading example</h2>
@@ -297,7 +297,7 @@
 
         To use, add `class="delayed"` in Markdown or HTML.
 
-        ```
+        ```markdown
         * Line 1<!-- .element: class="delayed" -->
         ```
         ```html
@@ -320,7 +320,7 @@
 
         To create a table of contents using slide titles, add `data-toc` to the `<header>` tag of the slide that contains the heading to be included.  Must be an `<h1>` heading. Only add the relevant headings/slides.
 
-        ```xml
+        ```html
         <header class="slide" data-markdown data-toc>
           #Customizing slides
         </header>
@@ -328,7 +328,7 @@
 
         Then in the slide, add this snippet to generate the list:
 
-        ```xml
+        ```html
         <div class="table-of-contents"></div>
         ```
         See the next slide to see the sample Table of Contents.
@@ -366,7 +366,7 @@
 
         To use, add the CSS example to a `textarea` with a class of `.snippet`. White space will be rendered as well.
 
-        ```xml
+        ```html
         <textarea class="snippet">background-color: lightblue;
         color: rebeccapurple;</textarea>
         ```
