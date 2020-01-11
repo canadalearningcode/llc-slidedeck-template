@@ -11,12 +11,37 @@
  * - Shifts focus to slide content container on link click
  *
  * @author Scott Vinkle <scott.vinkle@shopify.com>
- * @version 0.1.0
+ * @version 0.1.1
  * @license MIT License
  */
 
-Inspire.plugins.a11y.ready = (async () => {
+(async () => {
+  if (!window.Inspire) {
+    return;
+  }
+
   var self = (Inspire.a11y = {
+    // i18n
+    lang: document.documentElement.lang
+      ? document.documentElement.lang.toLowerCase()
+      : "en",
+    strings: {
+      en: {
+        slide: "slide",
+        next: "Next",
+        prev: "Previous",
+        nextSlide: "Next slide",
+        prevSlide: "Previous slide"
+      },
+      fr: {
+        slide: "diaporama",
+        next: "Prochain",
+        prev: "Précédent",
+        nextSlide: "Diapositive suivante",
+        prevSlide: "Diapositive précédente"
+      }
+    },
+
     /**
      * Set slides to be more screen reader friendly.
      *
@@ -35,7 +60,7 @@ Inspire.plugins.a11y.ready = (async () => {
         index: 0,
         next: null,
         prev: null,
-        title: '',
+        title: "",
         total: Inspire.slides.length
       };
 
@@ -53,12 +78,18 @@ Inspire.plugins.a11y.ready = (async () => {
         slide.next = slide.all[slide.index + 1];
 
         // Cache current slide title
-        slide.title = slide.current.getAttribute('data-title');
+        slide.title = slide.current.getAttribute("data-title");
 
         // Set current slide attributes
-        slide.current.setAttribute('role', 'region');
-        slide.current.setAttribute('aria-roledescription', 'slide');
-        slide.current.setAttribute('aria-label', slide.index + 1 + ' - ' + slide.title);
+        slide.current.setAttribute("role", "region");
+        slide.current.setAttribute(
+          "aria-roledescription",
+          self.strings[self.lang].slide
+        );
+        slide.current.setAttribute(
+          "aria-label",
+          slide.index + 1 + " - " + slide.title
+        );
 
         // Setup controls for current slide
         self.slideControls(slide.current, slide.prev, slide.next);
@@ -80,53 +111,56 @@ Inspire.plugins.a11y.ready = (async () => {
 
       // Create list and controls
       const controls = {
-        list: document.createElement('ul'),
+        list: document.createElement("ul"),
         next: {
-          item: document.createElement('li'),
-          link: document.createElement('a')
+          item: document.createElement("li"),
+          link: document.createElement("a")
         },
         prev: {
-          item: document.createElement('li'),
-          link: document.createElement('a')
-        },
-        strings: {
-          next: 'Next&nbsp;<span aria-hidden="true">&raquo;</span>',
-          nextAT: 'Next Slide',
-          previous: '<span aria-hidden="true">&laquo;</span>&nbsp;Previous',
-          previousAT: 'Previous Slide'
+          item: document.createElement("li"),
+          link: document.createElement("a")
         }
       };
 
       // List classes
-      controls.list.setAttribute('role', 'list');
-      controls.list.classList.add('a11y-controls__list');
+      controls.list.setAttribute("role", "list");
+      controls.list.classList.add("a11y-controls__list");
 
       // List items classes
-      controls.prev.item.classList.add('a11y-controls__item');
-      controls.next.item.classList.add('a11y-controls__item');
+      controls.prev.item.classList.add("a11y-controls__item");
+      controls.next.item.classList.add("a11y-controls__item");
 
       // Previous link classes
-      controls.prev.link.classList.add('a11y-controls__link');
-      controls.prev.link.classList.add('visuallyhidden');
-      controls.prev.link.classList.add('focusable');
+      controls.prev.link.classList.add("a11y-controls__link");
+      controls.prev.link.classList.add("visuallyhidden");
+      controls.prev.link.classList.add("focusable");
 
       // Next link classes
-      controls.next.link.classList.add('a11y-controls__link');
-      controls.next.link.classList.add('visuallyhidden');
-      controls.next.link.classList.add('focusable');
+      controls.next.link.classList.add("a11y-controls__link");
+      controls.next.link.classList.add("visuallyhidden");
+      controls.next.link.classList.add("focusable");
 
       // Output previous link if available
       if (prevSlide !== null) {
         // Previous link attributes
-        controls.prev.link.href = '#' + prevSlide.id;
-        controls.prev.link.target = '_self';
-        controls.prev.link.innerHTML = controls.strings.previous;
-        controls.prev.link.setAttribute('aria-label', controls.strings.previousAT);
+        controls.prev.link.href = "#" + prevSlide.id;
+        controls.prev.link.target = "_self";
+        controls.prev.link.innerHTML =
+          '<span aria-hidden="true">&larr;</span>&nbsp;' +
+          self.strings[self.lang].prev;
+        controls.prev.link.setAttribute(
+          "aria-label",
+          self.strings[self.lang].prevSlide
+        );
 
         // Load previous slide on click
-        controls.prev.link.addEventListener('click', () => {
-          self.shiftFocus(prevSlide);
-        }, false);
+        controls.prev.link.addEventListener(
+          "click",
+          () => {
+            self.shiftFocus(prevSlide);
+          },
+          false
+        );
 
         // Output previous link within list item
         controls.prev.item.appendChild(controls.prev.link);
@@ -136,15 +170,24 @@ Inspire.plugins.a11y.ready = (async () => {
       // Output next link if available
       if (nextSlide !== undefined) {
         // Next link attributes
-        controls.next.link.href = '#' + nextSlide.id;
-        controls.next.link.target = '_self';
-        controls.next.link.innerHTML = controls.strings.next;
-        controls.next.link.setAttribute('aria-label', controls.strings.nextAT);
+        controls.next.link.href = "#" + nextSlide.id;
+        controls.next.link.target = "_self";
+        controls.next.link.innerHTML =
+          self.strings[self.lang].next +
+          '&nbsp;<span aria-hidden="true">&rarr;</span>';
+        controls.next.link.setAttribute(
+          "aria-label",
+          self.strings[self.lang].nextSlide
+        );
 
         // Load next slide on click
-        controls.next.link.addEventListener('click', () => {
-          self.shiftFocus(nextSlide);
-        }, false);
+        controls.next.link.addEventListener(
+          "click",
+          () => {
+            self.shiftFocus(nextSlide);
+          },
+          false
+        );
 
         // Output next link within list item
         controls.next.item.appendChild(controls.next.link);
@@ -164,19 +207,17 @@ Inspire.plugins.a11y.ready = (async () => {
      * @param {Element} slide Slide `section` HTML element
      * @return null
      */
-    shiftFocus: (slide) => {
-      const addFocus = async () => {
-        // Set `tabindex` on the slide in order for it to receive focus
-        slide.setAttribute('tabindex', -1);
+    shiftFocus: slide => {
+      // Set `tabindex` on the slide in order for it to receive focus
+      slide.setAttribute("tabindex", -1);
 
-        // Send keyboard focus to the slide
-        slide.focus();
-      }
+      // Send keyboard focus to the slide
+      slide.focus();
 
-      addFocus().then(() => {
+      window.setTimeout(function() {
         // Remove `tabindex` in order to not disrupt Slide keyboard navigation
-        slide.removeAttribute('tabindex');
-      });
+        slide.removeAttribute("tabindex");
+      }, 500);
     },
 
     /**
