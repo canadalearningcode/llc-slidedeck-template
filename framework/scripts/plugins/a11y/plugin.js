@@ -88,7 +88,7 @@
         );
         slide.current.setAttribute(
           "aria-label",
-          slide.index + 1 + " - " + slide.title
+          `${slide.index + 1} - ${slide.title}`
         );
 
         // Setup controls for current slide
@@ -143,11 +143,9 @@
       // Output previous link if available
       if (prevSlide !== null) {
         // Previous link attributes
-        controls.prev.link.href = "#" + prevSlide.id;
+        controls.prev.link.href = `#${prevSlide.id}`;
         controls.prev.link.target = "_self";
-        controls.prev.link.innerHTML =
-          '<span aria-hidden="true">&larr;</span>&nbsp;' +
-          self.strings[self.lang].prev;
+        controls.prev.link.innerHTML = `<span aria-hidden="true">&larr;</span>&nbsp;${self.strings[self.lang].prev}`;
         controls.prev.link.setAttribute(
           "aria-label",
           self.strings[self.lang].prevSlide
@@ -170,11 +168,10 @@
       // Output next link if available
       if (nextSlide !== undefined) {
         // Next link attributes
-        controls.next.link.href = "#" + nextSlide.id;
+        controls.next.link.href = `#${nextSlide.id}`;
         controls.next.link.target = "_self";
         controls.next.link.innerHTML =
-          self.strings[self.lang].next +
-          '&nbsp;<span aria-hidden="true">&rarr;</span>';
+          `${self.strings[self.lang].next}&nbsp;<span aria-hidden="true">&rarr;</span>`;
         controls.next.link.setAttribute(
           "aria-label",
           self.strings[self.lang].nextSlide
